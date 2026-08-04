@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mecd Voice</title>
 
 <style>
@@ -19,56 +20,61 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#0f172a,#1d4ed8,#111827);
+padding:20px;
 }
 
 .box{
-width:90%;
+width:100%;
 max-width:420px;
-padding:35px;
-border-radius:25px;
 background:rgba(255,255,255,.12);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:35px;
 text-align:center;
 color:white;
-box-shadow:0 0 30px rgba(0,0,0,.5);
+box-shadow:0 0 35px rgba(0,0,0,.5);
 }
 
 .logo{
 font-size:70px;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
 h1{
+font-size:42px;
 margin-bottom:15px;
 }
 
 p{
-margin-bottom:25px;
+font-size:18px;
+margin-bottom:30px;
+opacity:.9;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:16px;
 margin-top:15px;
 border:none;
-border-radius:15px;
-font-size:18px;
+border-radius:18px;
+font-size:20px;
+font-weight:bold;
 cursor:pointer;
 transition:.3s;
 }
 
 button:hover{
-transform:scale(1.05);
+transform:scale(1.03);
 }
 
-#langBtn{
-background:#2563eb;
+#arabic{
+background:#16a34a;
 color:white;
 }
 
-#startBtn{
-background:white;
-color:#111;
+#turkish{
+background:#2563eb;
+color:white;
 }
 </style>
 
@@ -80,51 +86,34 @@ color:#111;
 
 <div class="logo">🎙️</div>
 
-<h1 id="title">Mecd Voice</h1>
+<h1>Mecd Voice</h1>
 
-<p id="welcome">مرحبًا بك في موقع المطور مجد</p>
+<p>
+اختر لغتك<br>
+Dilinizi seçin
+</p>
 
-<button id="langBtn">
-🌍 Türkçe / العربية
-</button>
+<button id="arabic">🇸🇦 العربية</button>
 
-<button id="startBtn">
-🚀 ابدأ
-</button>
+<button id="turkish">🇹🇷 Türkçe</button>
 
 </div>
 
 <script>
 
-let ar=true;
+document.getElementById("arabic").onclick=function(){
 
-const title=document.getElementById("title");
-const welcome=document.getElementById("welcome");
-const start=document.getElementById("startBtn");
+localStorage.setItem("language","ar");
 
-document.getElementById("langBtn").onclick=function(){
-
-if(ar){
-
-title.textContent="Mecd Voice";
-welcome.textContent="Mecd Voice'a hoş geldiniz";
-start.textContent="🚀 Başla";
-
-}else{
-
-title.textContent="Mecd Voice";
-welcome.textContent="مرحبًا بك في موقع المطور مجد";
-start.textContent="🚀 ابدأ";
-
-}
-
-ar=!ar;
+window.location.href="login.html";
 
 };
 
-start.onclick=function(){
+document.getElementById("turkish").onclick=function(){
 
-alert("✅ الموقع يعمل بنجاح");
+localStorage.setItem("language","tr");
+
+window.location.href="login.html";
 
 };
 
