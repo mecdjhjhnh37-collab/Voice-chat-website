@@ -82,50 +82,13 @@ color:white;
 
 <p id="text"></p>
 
-<button id="google">🔐</button>
+<button id="google"></button>
 
-<button id="back">⬅️</button>
+<button id="back"></button>
 
 </div>
 
-<script>
-
-const lang=localStorage.getItem("language")||"ar";
-
-const title=document.getElementById("title");
-const text=document.getElementById("text");
-const google=document.getElementById("google");
-const back=document.getElementById("back");
-
-if(lang==="ar"){
-
-title.textContent="تسجيل الدخول";
-text.textContent="سجل الدخول باستخدام Google";
-google.textContent="🔐 تسجيل الدخول بواسطة Google";
-back.textContent="⬅️ رجوع";
-
-}else{
-
-title.textContent="Giriş Yap";
-text.textContent="Google hesabınızla giriş yapın";
-google.textContent="🔐 Google ile giriş yap";
-back.textContent="⬅️ Geri";
-
-}
-
-back.onclick=function(){
-
-window.location.href="index.html";
-
-};
-
-google.onclick=function(){
-
-alert("في الخطوة القادمة سنربط Firebase وتسجيل الدخول الحقيقي.");
-
-};
-
-</script>
+<script type="module" src="login.js"></script>
 
 </body>
 </html>
