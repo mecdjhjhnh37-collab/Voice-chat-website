@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecd Voice</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1d4ed8,#111827);
+}
+
+.box{
+width:90%;
+max-width:420px;
+padding:35px;
+border-radius:25px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+text-align:center;
+color:white;
+box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.logo{
+font-size:70px;
+margin-bottom:15px;
+}
+
+h1{
+margin-bottom:15px;
+}
+
+p{
+margin-bottom:25px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#langBtn{
+background:#2563eb;
+color:white;
+}
+
+#startBtn{
+background:white;
+color:#111;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="logo">🎙️</div>
+
+<h1 id="title">Mecd Voice</h1>
+
+<p id="welcome">مرحبًا بك في موقع المطور مجد</p>
+
+<button id="langBtn">
+🌍 Türkçe / العربية
+</button>
+
+<button id="startBtn">
+🚀 ابدأ
+</button>
+
+</div>
+
+<script>
+
+let ar=true;
+
+const title=document.getElementById("title");
+const welcome=document.getElementById("welcome");
+const start=document.getElementById("startBtn");
+
+document.getElementById("langBtn").onclick=function(){
+
+if(ar){
+
+title.textContent="Mecd Voice";
+welcome.textContent="Mecd Voice'a hoş geldiniz";
+start.textContent="🚀 Başla";
+
+}else{
+
+title.textContent="Mecd Voice";
+welcome.textContent="مرحبًا بك في موقع المطور مجد";
+start.textContent="🚀 ابدأ";
+
+}
+
+ar=!ar;
+
+};
+
+start.onclick=function(){
+
+alert("✅ الموقع يعمل بنجاح");
+
+};
+
+</script>
+
+</body>
+</html>
