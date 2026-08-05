@@ -20,6 +20,7 @@ const settings = document.getElementById("settings");
 const logout = document.getElementById("logout");
 const searchInput = document.getElementById("searchId");
 const searchBtn = document.getElementById("searchBtn");
+const document.getElementById("searchResult");
 // بيانات المستخدم
 photo.src = localStorage.getItem("userPhoto") || "default.png";
 name.textContent = localStorage.getItem("userName") || "User";
@@ -71,3 +72,37 @@ createRoom.onclick = () => alert("قريبًا: إنشاء غرفة");
 joinRoom.onclick = () => alert("قريبًا: دخول غرفة");
 publicRooms.onclick = () => alert("قريبًا: الغرف العامة");
 settings.onclick = () => alert("قريبًا: الإعدادات");
+searchBtn.onclick = async () => {
+  const id = searchInput.value.trim();
+
+  if (!id) {
+    alert(lang === "ar" ? "اكتب ID المستخدم" : "Kullanıcı ID yaz");
+    return;
+  }
+
+  const snapshot = await getDocs(collection(db, "users"));
+
+  let found = false;
+
+  snapshot.forEach((doc) => {
+    const user = doc.data();
+
+    if (user.appId === id) {
+      found = true;
+
+      alert(
+        (lang === "ar"
+          ? "تم العثور على المستخدم:\n"
+          : "Kullanıcı bulundu:\n") + user.name
+      );
+    }
+  });
+
+  if (!found) {
+    alert(
+      lang === "ar"
+        ? "لم يتم العثور على المستخدم"
+        : "Kullanıcı bulunamadı"
+    );
+  }
+};
