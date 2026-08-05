@@ -132,14 +132,4 @@ publicRooms.onclick = () => alert("قريباً: الغرف العامة");
 settings.onclick = () => alert("قريباً: الإعدادات");
 
 
-// البحث (مؤقت)
 
-searchBtn.onclick = () => {
-
-  alert(
-    lang === "ar"
-    ? "سيتم إضافة البحث قريباً"
-    : "Arama yakında eklenecek"
-  );
-
-};
