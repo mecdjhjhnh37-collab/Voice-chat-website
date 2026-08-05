@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mecd Voice - Create Room</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+linear-gradient(135deg,#020617,#1d4ed8,#111827);
+
+padding:20px;
+
+}
+
+
+
+.room-box{
+
+width:100%;
+
+max-width:430px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+border-radius:30px;
+
+padding:35px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 0 40px rgba(0,0,0,.5);
+
+}
+
+
+
+.logo{
+
+font-size:70px;
+
+margin-bottom:15px;
+
+}
+
+
+
+h1{
+
+font-size:32px;
+
+margin-bottom:25px;
+
+}
+
+
+
+input,select{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:17px;
+
+outline:none;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:16px;
+
+margin-top:20px;
+
+border:none;
+
+border-radius:20px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+#create{
+
+background:#22c55e;
+
+color:white;
+
+}
+
+
+
+#back{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="room-box">
+
+
+<div class="logo">
+🎙️
+</div>
+
+
+<h1 id="title"></h1>
+
+
+<input 
+id="roomName"
+type="text">
+
+
+
+<select id="type">
+
+<option id="public"></option>
+
+<option id="private"></option>
+
+</select>
+
+
+
+<input
+id="password"
+type="password">
+
+
+
+<input
+id="people"
+type="number"
+value="10">
+
+
+
+<button id="create"></button>
+
+
+<button id="back"></button>
+
+
+</div>
+
+
+
+<script>
+
+
+const lang = localStorage.getItem("language") || "ar";
+
+
+const title = document.getElementById("title");
+const roomName = document.getElementById("roomName");
+const publicRoom = document.getElementById("public");
+const privateRoom = document.getElementById("private");
+const password = document.getElementById("password");
+const people = document.getElementById("people");
+const create = document.getElementById("create");
+const back = document.getElementById("back");
+
+
+
+if(lang === "ar"){
+
+
+title.textContent="🎙️ إنشاء غرفة";
+
+
+roomName.placeholder="اسم الغرفة";
+
+
+publicRoom.textContent="🌍 غرفة عامة";
+
+
+privateRoom.textContent="🔒 غرفة خاصة";
+
+
+password.placeholder="🔑 كلمة المرور (اختياري)";
+
+
+people.placeholder="👥 عدد الأشخاص";
+
+
+create.textContent="🚀 إنشاء الغرفة";
+
+
+back.textContent="⬅️ رجوع";
+
+
+
+}else{
+
+
+
+title.textContent="🎙️ Oda Oluştur";
+
+
+roomName.placeholder="Oda adı";
+
+
+publicRoom.textContent="🌍 Genel Oda";
+
+
+privateRoom.textContent="🔒 Özel Oda";
+
+
+password.placeholder="🔑 Şifre (isteğe bağlı)";
+
+
+people.placeholder="👥 Kişi sayısı";
+
+
+create.textContent="🚀 Odayı Oluştur";
+
+
+back.textContent="⬅️ Geri";
+
+
+
+}
+
+
+
+back.onclick = ()=>{
+
+window.location.href="home.html";
+
+};
+
+
+
+</script>
+
+
+</body>
+
+</html>
