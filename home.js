@@ -11,7 +11,7 @@ const name = document.getElementById("name");
 const status = document.getElementById("status");
 const appId = document.getElementById("appId");
 const adminBadge = document.getElementById("adminBadge");
-
+const friends = document.getElementById("friends");
 const createRoom = document.getElementById("createRoom");
 const joinRoom = document.getElementById("joinRoom");
 const publicRooms = document.getElementById("publicRooms");
