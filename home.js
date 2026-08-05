@@ -123,7 +123,9 @@ logout.onclick = () => {
 
 // أزرار مؤقتة
 
-createRoom.onclick = () => alert("قريباً: إنشاء غرفة");
+createRoom.onclick = () => {
+  window.location.href = "create-room.html";
+};
 
 joinRoom.onclick = () => alert("قريباً: دخول غرفة");
 
