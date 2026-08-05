@@ -1,7 +1,9 @@
 import { db } from "./firebase.js";
 import {
   doc,
-  getDoc
+  getDoc,
+  collection,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const lang = localStorage.getItem("language") || "ar";
