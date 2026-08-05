@@ -1,108 +1,113 @@
 import { db } from "./firebase.js";
+
 import {
   doc,
-  getDoc,
-  collection,
-  getDocs
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
 const lang = localStorage.getItem("language") || "ar";
+
+
 const photo = document.getElementById("photo");
 const name = document.getElementById("name");
 const status = document.getElementById("status");
 const appId = document.getElementById("appId");
 const adminBadge = document.getElementById("adminBadge");
-const friends = document.getElementById("friends");
+
 const createRoom = document.getElementById("createRoom");
 const joinRoom = document.getElementById("joinRoom");
 const publicRooms = document.getElementById("publicRooms");
+const friends = document.getElementById("friends");
 const settings = document.getElementById("settings");
 const logout = document.getElementById("logout");
+
 const searchInput = document.getElementById("searchId");
 const searchBtn = document.getElementById("searchBtn");
-const document.getElementById("searchResult");
+
+
 // بيانات المستخدم
+
 photo.src = localStorage.getItem("userPhoto") || "default.png";
+
 name.textContent = localStorage.getItem("userName") || "User";
-appId.textContent = "🆔 " + (localStorage.getItem("appId") || "غير موجود");
-// التحقق من الأدمن
+
+appId.textContent =
+"🆔 " + (localStorage.getItem("appId") || "غير موجود");
+
+
+// الأدمن
+
 const uid = localStorage.getItem("userId");
 
-if (uid) {
-  const snap = await getDoc(doc(db, "users", uid));
+if(uid){
 
-  if (snap.exists() && snap.data().admin === true) {
-    adminBadge.textContent = "👑 ADMIN";
-    adminBadge.style.color = "gold";
-    adminBadge.style.fontWeight = "bold";
-  }
+ const snap = await getDoc(doc(db,"users",uid));
+
+ if(snap.exists() && snap.data().admin === true){
+
+  adminBadge.textContent="👑 ADMIN";
+  adminBadge.style.color="gold";
+
+ }
+
 }
+
 
 // اللغة
-if (lang === "ar") {
-  status.textContent = "🟢 متصل الآن";
-  createRoom.textContent = "🎙️ إنشاء غرفة";
-  joinRoom.textContent = "🚪 دخول غرفة";
-  publicRooms.textContent = "🌍 الغرف العامة";
-  friends.textContent = "👥 الأصدقاء";
-  settings.textContent = "⚙️ الإعدادات";
-  logout.textContent = "🚪 تسجيل الخروج";
-  searchInput.placeholder = "🆔 اكتب ID المستخدم";
-searchBtn.textContent = "🔍 بحث عن صديق";
-} else {
-  status.textContent = "🟢 Çevrimiçi";
-  createRoom.textContent = "🎙️ Oda Oluştur";
-  joinRoom.textContent = "🚪 Odaya Katıl";
-  publicRooms.textContent = "🌍 Genel Odalar";
-  friends.textContent = "👥 Arkadaşlar";
-  settings.textContent = "⚙️ Ayarlar";
-  logout.textContent = "🚪 Çıkış Yap";
-  searchInput.placeholder = "🆔 Kullanıcı ID yaz";
-searchBtn.textContent = "🔍 Arkadaş Ara";
+
+if(lang === "ar"){
+
+status.textContent="🟢 متصل الآن";
+
+createRoom.textContent="🎙️ إنشاء غرفة";
+
+joinRoom.textContent="🚪 دخول غرفة";
+
+publicRooms.textContent="🌍 الغرف العامة";
+
+friends.textContent="👥 الأصدقاء";
+
+settings.textContent="⚙️ الإعدادات";
+
+logout.textContent="🚪 تسجيل الخروج";
+
+searchInput.placeholder="🆔 اكتب ID المستخدم";
+
+searchBtn.textContent="🔍 بحث عن صديق";
+
+
+}else{
+
+
+status.textContent="🟢 Çevrimiçi";
+
+createRoom.textContent="🎙️ Oda Oluştur";
+
+joinRoom.textContent="🚪 Odaya Katıl";
+
+publicRooms.textContent="🌍 Genel Odalar";
+
+friends.textContent="👥 Arkadaşlar";
+
+settings.textContent="⚙️ Ayarlar";
+
+logout.textContent="🚪 Çıkış Yap";
+
+searchInput.placeholder="🆔 Kullanıcı ID yaz";
+
+searchBtn.textContent="🔍 Arkadaş Ara";
+
+
 }
 
+
 // تسجيل الخروج
-logout.onclick = () => {
-  localStorage.clear();
-  window.location.href = "index.html";
-};
 
-// أزرار مؤقتة
-createRoom.onclick = () => alert("قريبًا: إنشاء غرفة");
-joinRoom.onclick = () => alert("قريبًا: دخول غرفة");
-publicRooms.onclick = () => alert("قريبًا: الغرف العامة");
-settings.onclick = () => alert("قريبًا: الإعدادات");
-searchBtn.onclick = async () => {
-  const id = searchInput.value.trim();
+logout.onclick=()=>{
 
-  if (!id) {
-    alert(lang === "ar" ? "اكتب ID المستخدم" : "Kullanıcı ID yaz");
-    return;
-  }
+localStorage.clear();
 
-  const snapshot = await getDocs(collection(db, "users"));
+window.location.href="index.html";
 
-  let found = false;
-
-  snapshot.forEach((doc) => {
-    const user = doc.data();
-
-    if (user.appId === id) {
-      found = true;
-
-      alert(
-        (lang === "ar"
-          ? "تم العثور على المستخدم:\n"
-          : "Kullanıcı bulundu:\n") + user.name
-      );
-    }
-  });
-
-  if (!found) {
-    alert(
-      lang === "ar"
-        ? "لم يتم العثور على المستخدم"
-        : "Kullanıcı bulunamadı"
-    );
-  }
 };
