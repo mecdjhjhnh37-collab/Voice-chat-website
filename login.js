@@ -47,7 +47,9 @@ google.onclick = async () => {
     if (!userSnap.exists()) {
       await setDoc(userRef, {
         uid: user.uid,
-        name: user.displayName,
+appId: "MC-" + user.uid.substring(0, 6).toUpperCase(),
+name: user.displayName,
+        
         email: user.email,
         photo: user.photoURL,
         admin: user.email === "mecdjhjh37@gmail.com",
