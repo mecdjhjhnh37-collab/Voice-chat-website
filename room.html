@@ -8,27 +8,27 @@
 
 <title>Mecd Voice Room</title>
 
+
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
+
 body{
+
 margin:0;
 height:100vh;
-background:#0b141a;
+background:#081c24;
 color:white;
-display:flex;
-justify-content:center;
+
 }
 
 
 .room{
 
-width:100%;
-max-width:500px;
 height:100vh;
 display:flex;
 flex-direction:column;
@@ -36,34 +36,37 @@ flex-direction:column;
 }
 
 
-/* الأعلى */
+/* رأس الغرفة */
 
 .header{
 
+height:75px;
 background:#075e54;
-padding:15px;
 display:flex;
 align-items:center;
+padding:15px;
 gap:15px;
 
 }
 
 
-.avatar{
+.room-logo{
 
 width:50px;
 height:50px;
 border-radius:50%;
-background:#ddd;
+background:#00a884;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-size:25px;
 
 }
 
 
-.info h2{
+.header h2{
 
 margin:0;
 font-size:20px;
@@ -71,11 +74,10 @@ font-size:20px;
 }
 
 
-.info p{
+.header p{
 
 margin:5px 0;
 font-size:13px;
-color:#ddd;
 
 }
 
@@ -83,14 +85,16 @@ color:#ddd;
 
 /* الرسائل */
 
-.chat{
+.messages{
 
 flex:1;
 padding:15px;
-overflow-y:auto;
+overflow:auto;
+
 background:#101b22;
 
 }
+
 
 
 .message{
@@ -98,17 +102,50 @@ background:#101b22;
 background:#202c33;
 padding:10px 15px;
 border-radius:15px;
-margin-bottom:10px;
-width:fit-content;
+
+width:max-content;
 max-width:80%;
+
+margin-bottom:10px;
 
 }
 
 
-.my-message{
+
+.my{
 
 background:#005c4b;
+
 margin-left:auto;
+
+}
+
+
+
+/* زر الصوت */
+
+.voice{
+
+text-align:center;
+padding:15px;
+
+}
+
+
+.talk{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+border:0;
+
+background:#00a884;
+
+color:white;
+
+font-size:35px;
 
 }
 
@@ -116,58 +153,69 @@ margin-left:auto;
 
 /* الأسفل */
 
+
 .bottom{
 
-background:#202c33;
-padding:10px;
 display:flex;
-align-items:center;
+
 gap:8px;
 
+padding:10px;
+
+background:#202c33;
+
 }
 
 
-.input{
+input{
 
 flex:1;
-background:#2a3942;
-border:none;
-padding:12px;
+
+border:0;
+
+outline:none;
+
 border-radius:25px;
+
+padding:12px;
+
+background:#2a3942;
+
 color:white;
 
 }
 
 
-.btn{
+
+button{
+
+border:0;
+
+cursor:pointer;
+
+}
+
+
+
+.send{
 
 width:45px;
+
 height:45px;
-border:none;
+
 border-radius:50%;
+
 background:#00a884;
+
 color:white;
+
 font-size:20px;
 
 }
 
 
-.talk{
-
-margin:15px auto;
-width:90px;
-height:90px;
-border-radius:50%;
-border:none;
-background:#00a884;
-color:white;
-font-size:35px;
-
-}
-
 
 </style>
-
 
 </head>
 
@@ -181,21 +229,16 @@ font-size:35px;
 <div class="header">
 
 
-<div class="avatar">
+<div class="room-logo">
 🎙️
 </div>
 
 
-<div class="info">
+<div>
 
-<h2 id="roomName">
-Mecd Voice
-</h2>
+<h2 id="title"></h2>
 
-<p id="roomId">
-ID: ----
-</p>
-
+<p id="roomId"></p>
 
 </div>
 
@@ -204,17 +247,19 @@ ID: ----
 
 
 
-<div class="chat" id="messages">
+
+<div class="messages" id="messages">
 
 
-<div class="message">
-👋 مرحباً بالغرفة
+<div class="message" id="welcome"></div>
+
+
 </div>
 
 
-</div>
 
 
+<div class="voice">
 
 
 <button class="talk">
@@ -224,34 +269,29 @@ ID: ----
 </button>
 
 
+</div>
+
+
 
 
 <div class="bottom">
 
 
-<button class="btn">
-😀
-</button>
+<input id="messageInput">
 
 
-<input class="input" placeholder="اكتب رسالة">
+<button class="send">
 
-
-<button class="btn">
-📎
-</button>
-
-
-<button class="btn">
 ➤
+
 </button>
 
 
 </div>
 
 
-
 </div>
+
 
 
 <script type="module" src="room.js"></script>
