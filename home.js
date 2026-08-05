@@ -41,6 +41,7 @@ if (lang === "ar") {
   createRoom.textContent = "🎙️ إنشاء غرفة";
   joinRoom.textContent = "🚪 دخول غرفة";
   publicRooms.textContent = "🌍 الغرف العامة";
+  friends.textContent = "👥 الأصدقاء";
   settings.textContent = "⚙️ الإعدادات";
   logout.textContent = "🚪 تسجيل الخروج";
 } else {
@@ -48,6 +49,7 @@ if (lang === "ar") {
   createRoom.textContent = "🎙️ Oda Oluştur";
   joinRoom.textContent = "🚪 Odaya Katıl";
   publicRooms.textContent = "🌍 Genel Odalar";
+  friends.textContent = "👥 Arkadaşlar";
   settings.textContent = "⚙️ Ayarlar";
   logout.textContent = "🚪 Çıkış Yap";
 }
