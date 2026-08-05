@@ -132,6 +132,16 @@ joinRoom.onclick = () => alert("قريباً: دخول غرفة");
 publicRooms.onclick = () => alert("قريباً: الغرف العامة");
 
 settings.onclick = () => alert("قريباً: الإعدادات");
+const createRoom = document.getElementById("createRoom");
 
+if (createRoom) {
+
+  createRoom.onclick = () => {
+
+    window.location.href = "create-room.html";
+
+  };
+
+}
 
 
