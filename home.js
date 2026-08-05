@@ -9,6 +9,7 @@ const lang = localStorage.getItem("language") || "ar";
 const photo = document.getElementById("photo");
 const name = document.getElementById("name");
 const status = document.getElementById("status");
+const appId = document.getElementById("appId");
 const adminBadge = document.getElementById("adminBadge");
 
 const createRoom = document.getElementById("createRoom");
@@ -20,7 +21,7 @@ const logout = document.getElementById("logout");
 // بيانات المستخدم
 photo.src = localStorage.getItem("userPhoto") || "default.png";
 name.textContent = localStorage.getItem("userName") || "User";
-
+appId.textContent = "🆔 " + (localStorage.getItem("appId") || "غير موجود");
 // التحقق من الأدمن
 const uid = localStorage.getItem("userId");
 
