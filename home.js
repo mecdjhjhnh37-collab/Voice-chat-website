@@ -5,7 +5,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const lang = localStorage.getItem("language") || "ar";
-alert(lang);
 const photo = document.getElementById("photo");
 const name = document.getElementById("name");
 const status = document.getElementById("status");
@@ -56,7 +55,7 @@ searchBtn.textContent = "🔍 بحث عن صديق";
   settings.textContent = "⚙️ Ayarlar";
   logout.textContent = "🚪 Çıkış Yap";
   searchInput.placeholder = "🆔 Kullanıcı ID yaz";
-searchBtn.textContent = "test";
+searchBtn.textContent = "Arkadaş Ara";
 }
 
 // تسجيل الخروج
