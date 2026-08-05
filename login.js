@@ -47,9 +47,8 @@ google.onclick = async () => {
     if (!userSnap.exists()) {
       await setDoc(userRef, {
         uid: user.uid,
-appId: "MC-" + user.uid.substring(0, 6).toUpperCase(),
-name: user.displayName,
-        
+        appId: "MC-" + user.uid.substring(0, 6).toUpperCase(),
+        name: user.displayName,
         email: user.email,
         photo: user.photoURL,
         admin: user.email === "mecdjhjh37@gmail.com",
@@ -58,10 +57,14 @@ name: user.displayName,
       });
     }
 
-    localStorage.setItem("userName", user.displayName || "");
-    localStorage.setItem("userPhoto", user.photoURL || "");
-    localStorage.setItem("userEmail", user.email || "");
-    localStorage.setItem("userId", user.uid);
+    const data = (await getDoc(userRef)).data();
+
+    localStorage.setItem("userName", data.name || "");
+    localStorage.setItem("userPhoto", data.photo || "");
+    localStorage.setItem("userEmail", data.email || "");
+    localStorage.setItem("userId", data.uid || "");
+    localStorage.setItem("appId", data.appId || "");
+    localStorage.setItem("isAdmin", data.admin);
 
     window.location.href = "home.html";
 
