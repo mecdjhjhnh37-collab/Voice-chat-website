@@ -15,6 +15,7 @@ const status = document.getElementById("status");
 const appId = document.getElementById("appId");
 const adminBadge = document.getElementById("adminBadge");
 
+
 const createRoom = document.getElementById("createRoom");
 const joinRoom = document.getElementById("joinRoom");
 const publicRooms = document.getElementById("publicRooms");
@@ -22,11 +23,12 @@ const friends = document.getElementById("friends");
 const settings = document.getElementById("settings");
 const logout = document.getElementById("logout");
 
+
 const searchInput = document.getElementById("searchId");
 const searchBtn = document.getElementById("searchBtn");
 
 
-// بيانات المستخدم
+// عرض بيانات المستخدم
 
 photo.src = localStorage.getItem("userPhoto") || "default.png";
 
@@ -36,78 +38,108 @@ appId.textContent =
 "🆔 " + (localStorage.getItem("appId") || "غير موجود");
 
 
-// الأدمن
+// فحص الأدمن
 
 const uid = localStorage.getItem("userId");
 
-if(uid){
+if (uid) {
 
- const snap = await getDoc(doc(db,"users",uid));
+  const userDoc = await getDoc(doc(db, "users", uid));
 
- if(snap.exists() && snap.data().admin === true){
+  if (userDoc.exists()) {
 
-  adminBadge.textContent="👑 ADMIN";
-  adminBadge.style.color="gold";
+    const user = userDoc.data();
 
- }
+    if (user.admin === true) {
+
+      adminBadge.textContent = "👑 ADMIN";
+      adminBadge.style.color = "gold";
+      adminBadge.style.fontWeight = "bold";
+
+    }
+
+  }
 
 }
 
 
 // اللغة
 
-if(lang === "ar"){
+if (lang === "ar") {
 
-status.textContent="🟢 متصل الآن";
+  status.textContent = "🟢 متصل الآن";
 
-createRoom.textContent="🎙️ إنشاء غرفة";
+  createRoom.textContent = "🎙️ إنشاء غرفة";
 
-joinRoom.textContent="🚪 دخول غرفة";
+  joinRoom.textContent = "🚪 دخول غرفة";
 
-publicRooms.textContent="🌍 الغرف العامة";
+  publicRooms.textContent = "🌍 الغرف العامة";
 
-friends.textContent="👥 الأصدقاء";
+  friends.textContent = "👥 الأصدقاء";
 
-settings.textContent="⚙️ الإعدادات";
+  settings.textContent = "⚙️ الإعدادات";
 
-logout.textContent="🚪 تسجيل الخروج";
+  logout.textContent = "🚪 تسجيل الخروج";
 
-searchInput.placeholder="🆔 اكتب ID المستخدم";
+  searchInput.placeholder = "🆔 اكتب ID المستخدم";
 
-searchBtn.textContent="🔍 بحث عن صديق";
-
-
-}else{
+  searchBtn.textContent = "🔍 بحث عن صديق";
 
 
-status.textContent="🟢 Çevrimiçi";
+} else {
 
-createRoom.textContent="🎙️ Oda Oluştur";
 
-joinRoom.textContent="🚪 Odaya Katıl";
+  status.textContent = "🟢 Çevrimiçi";
 
-publicRooms.textContent="🌍 Genel Odalar";
+  createRoom.textContent = "🎙️ Oda Oluştur";
 
-friends.textContent="👥 Arkadaşlar";
+  joinRoom.textContent = "🚪 Odaya Katıl";
 
-settings.textContent="⚙️ Ayarlar";
+  publicRooms.textContent = "🌍 Genel Odalar";
 
-logout.textContent="🚪 Çıkış Yap";
+  friends.textContent = "👥 Arkadaşlar";
 
-searchInput.placeholder="🆔 Kullanıcı ID yaz";
+  settings.textContent = "⚙️ Ayarlar";
 
-searchBtn.textContent="🔍 Arkadaş Ara";
+  logout.textContent = "🚪 Çıkış Yap";
 
+  searchInput.placeholder = "🆔 Kullanıcı ID yaz";
+
+  searchBtn.textContent = "🔍 Arkadaş Ara";
 
 }
 
 
 // تسجيل الخروج
 
-logout.onclick=()=>{
+logout.onclick = () => {
 
-localStorage.clear();
+  localStorage.clear();
 
-window.location.href="index.html";
+  window.location.href = "index.html";
+
+};
+
+
+// أزرار مؤقتة
+
+createRoom.onclick = () => alert("قريباً: إنشاء غرفة");
+
+joinRoom.onclick = () => alert("قريباً: دخول غرفة");
+
+publicRooms.onclick = () => alert("قريباً: الغرف العامة");
+
+settings.onclick = () => alert("قريباً: الإعدادات");
+
+
+// البحث (مؤقت)
+
+searchBtn.onclick = () => {
+
+  alert(
+    lang === "ar"
+    ? "سيتم إضافة البحث قريباً"
+    : "Arama yakında eklenecek"
+  );
 
 };
