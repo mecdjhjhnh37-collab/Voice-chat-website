@@ -56,7 +56,7 @@ searchBtn.textContent = "🔍 بحث عن صديق";
   settings.textContent = "⚙️ Ayarlar";
   logout.textContent = "🚪 Çıkış Yap";
   searchInput.placeholder = "🆔 Kullanıcı ID yaz";
-searchBtn.textContent = "🔍 Arkadaş Ara";
+searchBtn.textContent = "test";
 }
 
 // تسجيل الخروج
