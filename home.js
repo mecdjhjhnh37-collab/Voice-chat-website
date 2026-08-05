@@ -17,7 +17,8 @@ const joinRoom = document.getElementById("joinRoom");
 const publicRooms = document.getElementById("publicRooms");
 const settings = document.getElementById("settings");
 const logout = document.getElementById("logout");
-
+const searchInput = document.getElementById("searchId");
+const searchBtn = document.getElementById("searchBtn");
 // بيانات المستخدم
 photo.src = localStorage.getItem("userPhoto") || "default.png";
 name.textContent = localStorage.getItem("userName") || "User";
@@ -44,6 +45,8 @@ if (lang === "ar") {
   friends.textContent = "👥 الأصدقاء";
   settings.textContent = "⚙️ الإعدادات";
   logout.textContent = "🚪 تسجيل الخروج";
+  searchInput.placeholder = "🆔 اكتب ID المستخدم";
+searchBtn.textContent = "🔍 بحث عن صديق";
 } else {
   status.textContent = "🟢 Çevrimiçi";
   createRoom.textContent = "🎙️ Oda Oluştur";
@@ -52,6 +55,8 @@ if (lang === "ar") {
   friends.textContent = "👥 Arkadaşlar";
   settings.textContent = "⚙️ Ayarlar";
   logout.textContent = "🚪 Çıkış Yap";
+  searchInput.placeholder = "🆔 Kullanıcı ID yaz";
+searchBtn.textContent = "🔍 Arkadaş Ara";
 }
 
 // تسجيل الخروج
