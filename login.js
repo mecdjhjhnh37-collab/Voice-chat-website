@@ -6,7 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-const googleLogin = document.getElementById("googleLogin");
+const googleLogin = document.getElementById("google");
 
 
 googleLogin.onclick = async () => {
