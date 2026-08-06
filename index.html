@@ -32,6 +32,18 @@
 </button>
 
 </div>
+<script>
 
+document.getElementById("arabicBtn").onclick = function(){
+    localStorage.setItem("language","ar");
+    window.location.href="login.html";
+};
+
+document.getElementById("turkishBtn").onclick = function(){
+    localStorage.setItem("language","tr");
+    window.location.href="login.html";
+};
+
+</script>
 </body>
 </html>
