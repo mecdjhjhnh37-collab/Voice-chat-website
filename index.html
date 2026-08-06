@@ -8,7 +8,111 @@
 
 <title>Mecd Voice</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(135deg,#020617,#2563eb,#111827);
+
+}
+
+
+.box{
+
+width:90%;
+max-width:420px;
+
+padding:35px;
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(15px);
+
+border-radius:30px;
+
+text-align:center;
+
+color:white;
+
+}
+
+
+.logo{
+
+font-size:70px;
+margin-bottom:20px;
+
+}
+
+
+h1{
+
+font-size:35px;
+margin-bottom:15px;
+
+}
+
+
+p{
+
+font-size:18px;
+margin-bottom:30px;
+
+}
+
+
+button{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:20px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+#arabic{
+
+background:#16a34a;
+color:white;
+
+}
+
+
+#turkish{
+
+background:#2563eb;
+color:white;
+
+}
+
+
+</style>
 
 </head>
 
@@ -16,7 +120,7 @@
 <body>
 
 
-<div class="welcome-box">
+<div class="box">
 
 
 <div class="logo">
@@ -29,21 +133,17 @@ Mecd Voice
 </h1>
 
 
-<p>
+<p id="welcome">
 مرحبًا بك في موقع المطور مجد
 </p>
 
 
-<p>
-Geliştirici Mecd'in sitesine hoş geldiniz
-</p>
-
-
-<button id="arabicBtn">
+<button id="arabic">
 🇸🇦 العربية
 </button>
 
-<button id="turkishBtn">
+
+<button id="turkish">
 🇹🇷 Türkçe
 </button>
 
@@ -54,25 +154,22 @@ Geliştirici Mecd'in sitesine hoş geldiniz
 
 <script>
 
-const arabicBtn = document.getElementById("arabicBtn");
-const turkishBtn = document.getElementById("turkishBtn");
 
-
-arabicBtn.onclick = function(){
+document.getElementById("arabic").onclick = ()=>{
 
 localStorage.setItem("language","ar");
 
-window.location.href = "login.html";
+window.location.href="login.html";
 
 };
 
 
 
-turkishBtn.onclick = function(){
+document.getElementById("turkish").onclick = ()=>{
 
 localStorage.setItem("language","tr");
 
-window.location.href = "login.html";
+window.location.href="login.html";
 
 };
 
