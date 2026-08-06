@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,39 +12,75 @@
 
 </head>
 
+
 <body>
+
 
 <div class="welcome-box">
 
-<div class="logo">🎙️</div>
 
-<h1>Mecd Voice</h1>
+<div class="logo">
+🎙️
+</div>
 
-<p>مرحبًا بك في موقع المطور مجد</p>
 
-<p>Geliştirici Mecd'in sitesine hoş geldiniz</p>
+<h1>
+Mecd Voice
+</h1>
 
-<button /button>id="arabicBtn">
+
+<p>
+مرحبًا بك في موقع المطور مجد
+</p>
+
+
+<p>
+Geliştirici Mecd'in sitesine hoş geldiniz
+</p>
+
+
+<button id="arabicBtn">
 🇸🇦 العربية
 </button>
 
-<button /button>id="turkishBtn">
+
+<button id="turkishBtn">
 🇹🇷 Türkçe
 </button>
 
+
 </div>
+
+
+
 <script>
 
-document.getElementById("arabicBtn").onclick = function(){
-    localStorage.setItem("language","ar");
-    window.location.href="login.html";
+const arabicBtn = document.getElementById("arabicBtn");
+const turkishBtn = document.getElementById("turkishBtn");
+
+
+arabicBtn.onclick = function(){
+
+localStorage.setItem("language","ar");
+
+window.location.href = "login.html";
+
 };
 
-document.getElementById("turkishBtn").onclick = function(){
-    localStorage.setItem("language","tr");
-    window.location.href="login.html";
+
+
+turkishBtn.onclick = function(){
+
+localStorage.setItem("language","tr");
+
+window.location.href = "login.html";
+
 };
+
 
 </script>
+
+
 </body>
+
 </html>
