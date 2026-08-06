@@ -1,31 +1,31 @@
 const lang = localStorage.getItem("language") || "ar";
 
-const text = document.getElementById("loginText");
-const google = document.getElementById("googleLogin");
-const back = document.getElementById("backBtn");
+const loginText = document.getElementById("loginText");
+const googleLogin = document.getElementById("googleLogin");
+const backBtn = document.getElementById("backBtn");
 
 
-if(lang === "tr"){
+if (lang === "tr") {
 
-    text.textContent = "Giriş Yap";
+    loginText.textContent = "Giriş Yap";
 
-    google.textContent = "🔐 Google ile giriş yap";
+    googleLogin.textContent = "🔐 Google ile giriş yap";
 
-    back.textContent = "⬅️ Geri";
+    backBtn.textContent = "⬅️ Geri";
 
 
-}else{
+} else {
 
-    text.textContent = "تسجيل الدخول";
+    loginText.textContent = "تسجيل الدخول";
 
-    google.textContent = "🔐 تسجيل الدخول بواسطة Google";
+    googleLogin.textContent = "🔐 تسجيل الدخول بواسطة Google";
 
-    back.textContent = "⬅️ رجوع";
+    backBtn.textContent = "⬅️ رجوع";
 
 }
 
 
-back.onclick = function(){
+backBtn.onclick = () => {
 
     window.location.href = "index.html";
 
