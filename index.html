@@ -175,7 +175,26 @@ window.location.href="login.html";
 
 
 </script>
+<script>
 
+const lang = localStorage.getItem("language") || "ar";
+
+const welcome = document.getElementById("welcome");
+
+
+if(lang === "tr"){
+
+welcome.textContent =
+"Geliştirici Mecd'in sitesine hoş geldiniz";
+
+}else{
+
+welcome.textContent =
+"مرحبًا بك في موقع المطور مجد";
+
+}
+
+</script>
 
 </body>
 
