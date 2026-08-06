@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecd Voice</title>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="welcome-box">
+
+<div class="logo">
+🎙️
+</div>
+
+<h1>Mecd Voice</h1>
+
+<p id="welcomeText">
+مرحبًا بك في موقع المطور مجد
+</p>
+
+<p id="welcomeText2">
+Geliştirici Mecd'in sitesine hoş geldiniz
+</p>
+
+<button id="arabicBtn">
+🇸🇦 العربية
+</button>
+
+<button id="turkishBtn">
+🇹🇷 Türkçe
+</button>
+
+</div>
+
+<script>
+
+document.getElementById("arabicBtn").onclick = () => {
+localStorage.setItem("language","ar");
+window.location.href="login.html";
+};
+
+document.getElementById("turkishBtn").onclick = () => {
+localStorage.setItem("language","tr");
+window.location.href="login.html";
+};
+
+</script>
+
+</body>
+</html>
