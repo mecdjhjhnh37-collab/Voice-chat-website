@@ -1,33 +1,32 @@
-import { auth } from "./firebase.js";
+const lang = localStorage.getItem("language") || "ar";
 
-import {
-  GoogleAuthProvider,
-  signInWithPopup
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const text = document.getElementById("loginText");
+const google = document.getElementById("googleLogin");
+const back = document.getElementById("backBtn");
 
-const googleBtn = document.getElementById("googleLogin");
-const backBtn = document.getElementById("backBtn");
 
-backBtn.onclick = () => {
-  window.location.href = "index.html";
-};
+if(lang === "tr"){
 
-googleBtn.onclick = async () => {
+    text.textContent = "Giriş Yap";
 
-  try {
+    google.textContent = "🔐 Google ile giriş yap";
 
-    const provider = new GoogleAuthProvider();
+    back.textContent = "⬅️ Geri";
 
-    await signInWithPopup(auth, provider);
 
-    window.location.href = "home.html";
+}else{
 
-  } catch (e) {
+    text.textContent = "تسجيل الدخول";
 
-    alert("فشل تسجيل الدخول");
+    google.textContent = "🔐 تسجيل الدخول بواسطة Google";
 
-    console.error(e);
+    back.textContent = "⬅️ رجوع";
 
-  }
+}
+
+
+back.onclick = function(){
+
+    window.location.href = "index.html";
 
 };
