@@ -46,7 +46,27 @@ Mecd Voice
 
 </div>
 
+<script>
 
+const lang = localStorage.getItem("language") || "ar";
+
+if(lang === "tr"){
+
+document.getElementById("title").textContent = "Giriş Yap";
+document.getElementById("text").textContent = "Google hesabınızla giriş yapın";
+document.getElementById("google").textContent = "🔐 Google ile giriş yap";
+document.getElementById("back").textContent = "⬅️ Geri";
+
+}else{
+
+document.getElementById("title").textContent = "تسجيل الدخول";
+document.getElementById("text").textContent = "سجل الدخول باستخدام Google";
+document.getElementById("google").textContent = "🔐 تسجيل الدخول بواسطة Google";
+document.getElementById("back").textContent = "⬅️ رجوع";
+
+}
+
+  </script>
 
 <script type="module" src="login.js"></script>
 
