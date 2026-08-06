@@ -1,32 +1,55 @@
-const lang = localStorage.getItem("language") || "ar";
+import { auth } from "./firebase.js";
 
-const loginText = document.getElementById("loginText");
+import {
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
 const googleLogin = document.getElementById("googleLogin");
-const backBtn = document.getElementById("backBtn");
 
 
-if (lang === "tr") {
+googleLogin.onclick = async function(){
 
-    loginText.textContent = "Giriş Yap";
+try{
 
-    googleLogin.textContent = "🔐 Google ile giriş yap";
-
-    backBtn.textContent = "⬅️ Geri";
+const provider = new GoogleAuthProvider();
 
 
-} else {
+const result = await signInWithPopup(
+    auth,
+    provider
+);
 
-    loginText.textContent = "تسجيل الدخول";
 
-    googleLogin.textContent = "🔐 تسجيل الدخول بواسطة Google";
+const user = result.user;
 
-    backBtn.textContent = "⬅️ رجوع";
+
+// حفظ معلومات المستخدم
+
+localStorage.setItem("userName", user.displayName || "");
+
+localStorage.setItem("userPhoto", user.photoURL || "");
+
+localStorage.setItem("userEmail", user.email || "");
+
+localStorage.setItem("userId", user.uid);
+
+
+// الانتقال للصفحة الرئيسية
+
+window.location.href = "home.html";
+
 
 }
 
+catch(error){
 
-backBtn.onclick = () => {
+console.error(error);
 
-    window.location.href = "index.html";
+alert("خطأ في تسجيل الدخول: " + error.message);
+
+}
+
 
 };
